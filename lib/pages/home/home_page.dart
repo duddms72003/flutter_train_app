@@ -23,6 +23,31 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child:
+                            _buildStationColumn('출발역', departureStation, true)),
+                    Container(
+                      height: 50,
+                      child: VerticalDivider(
+                        color: Colors.grey[400],
+                        thickness: 2,
+                        width: 50,
+                      ),
+                    ),
+                    Expanded(
+                        child:
+                            _buildStationColumn('도착역', arrivalStation, false)),
+                  ],
+                ),
+              ),
               SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,
@@ -55,6 +80,49 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildStationColumn(String title, String station, bool isDeparture) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => StationListPage(
+              isDeparture: isDeparture,
+              currentDeparture: departureStation,
+              currentArrival: arrivalStation,
+            ),
+          ),
+        ).then((selectedStation) {
+          if (selectedStation != null) {
+            setState(() {
+              if (isDeparture) {
+                departureStation = selectedStation;
+              } else {
+                arrivalStation = selectedStation;
+              }
+            });
+          }
+        });
+      },
+      child: Column(
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            station,
+            style: TextStyle(fontSize: 40),
+          ),
+        ],
       ),
     );
   }
