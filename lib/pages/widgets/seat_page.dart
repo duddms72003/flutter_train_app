@@ -38,30 +38,9 @@ class SeatPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 20,
-                  height: 20,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.purple,
-                  ),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('선택됨'),
-                Container(
-                  width: 20,
-                  height: 20,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.grey,
-                  ),
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text('선택됨'),
+                _textChoosen(Colors.purple, '선택됨'),
+                SizedBox(width: 20),
+                _textChoosen(Colors.grey, '선택안됨'),
               ],
             ),
           ],
@@ -69,4 +48,21 @@ class SeatPage extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _textChoosen(Color color, String label) {
+  return Row(
+    children: [
+      Container(
+        width: 24,
+        height: 24,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: color,
+        ),
+      ),
+      SizedBox(width: 5),
+      Text(label),
+    ],
+  );
 }
