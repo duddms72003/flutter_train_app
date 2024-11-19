@@ -1,17 +1,27 @@
-# flutter_train_app
+# FLUTTER_TRAIN_APP
 
-A new Flutter project.
+> 기차 예매 서비스
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Table of Contents
 
-A few resources to get you started if this is your first Flutter project:
+1. [프로젝트 소개](#프로젝트-소개)
+2. [기능](#기능)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# flutter_train_app
+## 프로젝트 소개
+
+### 📖 소개
+
+이 프로젝트는 **기차역 선택 및 좌석 예매 기능**을 제공합니다.
+
+---
+
+## 기능
+
+- **기차역 선택**
+- **좌석 선택**
+- **showCupertinoDialog 팝업**
+- **조건에 따른 버튼 활성/비활성화**
