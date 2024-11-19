@@ -53,19 +53,22 @@ class _HomePageState extends State<HomePage> {
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return SeatPage(
-                            departureStation: departureStation,
-                            arrivalStation: arrivalStation,
-                          );
-                        },
-                      ),
-                    );
-                  },
+                  onPressed:
+                      (departureStation != '선택' && arrivalStation != '선택')
+                          ? () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return SeatPage(
+                                      departureStation: departureStation,
+                                      arrivalStation: arrivalStation,
+                                    );
+                                  },
+                                ),
+                              );
+                            }
+                          : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.purple,
                     foregroundColor: Colors.white,
