@@ -58,7 +58,10 @@ class _HomePageState extends State<HomePage> {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return SeatPage();
+                          return SeatPage(
+                            departureStation: departureStation,
+                            arrivalStation: arrivalStation,
+                          );
                         },
                       ),
                     );
